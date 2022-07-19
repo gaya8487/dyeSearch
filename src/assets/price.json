@@ -1,0 +1,40 @@
+{
+  "price" : [
+      {
+        "id": "1",
+        "dyeId": "1",
+        "currencyId"  : "1",
+        "price" : "60",
+        "restriced" : "false"
+      }, 
+     {
+        "id": "2",
+        "dyeId": "2",
+        "currencyId"  : "1",
+        "price" : "261",
+        "restriced" : "true"
+      }, 
+     {
+        "id": "3",
+        "dyeId": "9",
+        "currencyId"  : "1",
+        "price" : "261",
+        "restriced" : "false"
+      }, 
+     {
+        "id": "4",
+        "dyeId": "9",
+        "currencyId"  : "2",
+        "price" : "1",
+        "restriced" : "flase"
+      }, 
+     {
+        "id": "5",
+        "dyeId": "18",
+        "currencyId"  : "3",
+        "price" : "100",
+        "restriced" : "false"
+      }
+  ]
+}
+

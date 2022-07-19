@@ -1,0 +1,119 @@
+{
+  "npc" : [
+      {
+        "id": "1",
+        "name": "",
+        "nameJp"  : "雑貨屋 ウンシンレール",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "リムサ・ロミンサ：下甲板層X:6.0 Y:12.3",
+        "locationEn" : "",
+        "priceId" : ["1"]
+
+      }, 
+     {
+         "id": "2",
+        "name": "",
+        "nameJp"  : "雑貨屋 アラリック",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "グリダニア：旧市街X:14.3 Y:8.8",
+        "locationEn" : "",
+        "priceId" :  ["1"]
+
+      }, 
+     {
+        "id": "3",
+        "name": "",
+        "nameJp"  : "雑貨屋 ナナベ",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "ウルダハ：ザル回廊X:14.2 Y:11.0",
+        "locationEn" : "",
+        "priceId" :  ["1"]
+      },
+            {
+        "id": "4",
+        "name": "",
+        "nameJp"  : "よろず屋 フリヌ",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "イシュガルド：上層X:6.0 Y:9.9",
+        "locationEn" : "",
+        "priceId" :   ["1"]
+
+      }, 
+     {
+         "id": "5",
+        "name": "",
+        "nameJp"  : "エイロンウィー",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "蒼天街X:12.2 Y:14.2",
+        "locationEn" : "",
+        "priceId" : ["1"]
+      }, 
+     {
+        "id": "6",
+        "name": "",
+        "nameJp"  : "速筆の画家",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "イディルシャイアX:4.5 Y:6.4",
+        "locationEn" : "",
+        "priceId" :   ["1"]
+      },
+            {
+        "id": "7",
+        "name": "",
+        "nameJp"  : "よろず屋 トコハナ",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "クガネX:12.9 Y:12.2",
+        "locationEn" : "",
+        "priceId" :  ["1"]
+
+      }, 
+     {
+         "id": "8",
+        "name": "",
+        "nameJp"  : "イクサル族のよろず屋",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "黒衣森：北部森林X:24.9 Y:22.7",
+        "locationEn" : "",
+        "priceId" :   ["2"]
+      }, 
+     {
+        "id": "9",
+        "name": "",
+        "nameJp"  : "サハギン族のよろず屋",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "西ラノシアX:16.9 Y:22.4",
+        "locationEn" : "",
+        "priceId" : ["3","4"]
+      },
+           {
+        "id": "10",
+        "name": "",
+        "nameJp"  : "エニー",
+        "nameKr" : "",
+        "location" : "",
+        "locationkr" : "",
+        "locationJp" : "蒼天街 X: 12.0 Y: 14.0",
+        "locationEn" : "",
+        "priceId" : ["5"]
+      }
+  ]
+}
+

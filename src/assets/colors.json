@@ -1,0 +1,78 @@
+{
+  "color" : [
+     {
+        "id"  : "1",
+        "colorType": "1",
+        "btnId":"1",  
+        "name": "Terebinth",
+        "nameJp": "テレビン油",
+        "nameKr": "테레빈유",
+        "code": "#3f3f3f",
+        "craft" : "false",
+        "trade" : "true",
+        "market" : "true", 
+        "icon" :"Terebinth"       
+      }, 
+    
+    {
+        "id"  : "2",
+        "colorType": "1",
+        "btnId":"2",  
+        "name": "Snow White Dye",
+        "nameJp": "カララント:スノウホワイト",
+        "nameKr": "염료 : 하얀눈색",
+        "code": "#e4dfd0",
+        "craft" : "true",
+        "trade" : "true",
+        "market" : "true",       
+        "icon" :"white_dye"       
+      }, 
+     
+      {
+        "id"  : "9",
+        "colorType": "2",
+        "btnId":"2", 
+        "name": "Lilac Purple Dye",
+        "nameJp": "カララント:ライラックパープル",
+        "nameKr": "염료: 라일락색",
+        "code": "#836969",
+        "craft" : "false",
+        "trade" : "true",
+        "market" : "true",
+        "icon" :"red_dye" 
+        
+      },
+
+      {
+        "id"  : "18",
+        "colorType": "2",
+        "btnId":"11", 
+        "name": "Cherry Pink Dye",
+        "nameJp": "カララント:チェリーピンク",
+        "nameKr": "염료: 꽃분홍색",
+        "code": "#f5379b",
+        "craft" : "false",
+        "trade" : "true",
+        "market" : "true",
+        "icon" :"red_dye" 
+        
+      },
+     {
+        "id"  : "100",
+        "colorType": "8",
+        "btnId":"8", 
+        "name": "General-purpose Dark Red Dye",
+        "nameJp": "カララント:ダークレッド",
+        "nameKr": "염료: 짙은 빨강",
+        "code": "#321919",
+        "craft" : "false",
+        "trade" : "true",
+        "market" : "false",
+        "icon" :"special_red_dye" 
+
+        
+      }
+
+  ]
+}
+

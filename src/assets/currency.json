@@ -1,0 +1,26 @@
+{
+  "currency" : [
+      {
+        "id": "1",
+        "name": "Gil",
+        "nameJp"  : "ギル",
+        "nameKr" : "길",
+        "icon" : "gil"
+      }, 
+     {
+        "id": "2",
+        "name": "Rainbowtide Psashp",
+        "nameJp"  : "サハギン虹貝貨1",
+        "nameKr" : "사하긴채패화",
+        "icon" : "sahagin"
+      }, 
+     {
+        "id": "3",
+        "name": "Skybuilders' Scrip",
+        "nameJp"  : "蒼天街振興券",
+        "nameKr" : "창천 거리 진흥권",
+        "icon" : "skybuiler"
+      }
+  ]
+}
+
