@@ -32,9 +32,9 @@
           </span>
         </div>
 
-        <div style="text-align:left;" v-show="firstLevelBtnId > 0 || secondBtnsFlag">
+        <div style="text-align:left;" v-show="firstLevelBtnId > 0 || secondBtnsFlag" class="secondBtnList">
           <span class=" secondLevelBtnSpan" v-for="(color) in colorsSecondBtnList" :key="color.id">
-            <button class="secondLevelBtn" v-bind:id="'secondBtn'+ color.id" 
+            <button class="secondLevelBtn" v-bind:id="'secondBtn'+ color.id"
               v-on:click="secondLevelBtnClick(color.id, color.colorType,color.btnId,color.code)"
               v-bind:style="[{ 'background': color.code }, secondLevelBtnId == color.btnId ? {'border':'solid' } : {'border':'none'} ] "
               v-tooltip="color.nameKr">
@@ -637,11 +637,19 @@ console.log("currency", currencyData);
     width: 50px;
     height: 50px;
     display: inline-block;
-    margin: 1px;
+    margin: 2px;
+  }
+  .secondBtnList{
+    background-color: whitesmoke;
+    border:black solid 1px;
+    border-radius: 10px;
+    padding:4px ;
+    
   }
   .secondLevelBtn {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
 
   }
   #firstBtn8{
