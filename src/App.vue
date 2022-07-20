@@ -1,17 +1,27 @@
 <template >
-
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <div v-tooltip="{
-      global: true,
-      theme: {
-        placement: 'bottom'
-      },
+    global: true,
+    theme: {
+      placement: 'bottom'
+    },
   }">
   </div>
 
 
-  <div id="container" class="container" style="margin-top:5%">
 
+  <div id="container" class="container">
     <!--색깔 버튼-->
+    <hr>
+    <div style="text-align: left; color:gray">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+          <path
+            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+      </span> 색으로 찾기
+    </div>
     <div style="background:#D3D3D3	; border-radius:10px; padding:9px ; border: 1px solid; ">
       <div>
         <div style="text-align:left">
@@ -22,10 +32,10 @@
           </span>
         </div>
 
-        <div style="text-align:left; ">
-          <span class="secondLevelBtnSpan" v-for="color in colorsSecondBtnList" :key="color.id">
-            <button class="secondLevelBtn" v-bind:id="'secondBtn'+ color.id"
-              v-on:click="secondLevelBtnClick(color.id, color.colorType,color.btnId)"
+        <div style="text-align:left;" v-show="firstLevelBtnId > 0 || secondBtnsFlag">
+          <span class=" secondLevelBtnSpan" v-for="(color) in colorsSecondBtnList" :key="color.id">
+            <button class="secondLevelBtn" v-bind:id="'secondBtn'+ color.id" 
+              v-on:click="secondLevelBtnClick(color.id, color.colorType,color.btnId,color.code)"
               v-bind:style="[{ 'background': color.code }, secondLevelBtnId == color.btnId ? {'border':'solid' } : {'border':'none'} ] "
               v-tooltip="color.nameKr">
             </button>
@@ -36,6 +46,17 @@
     </div>
 
     <br>
+    <hr>
+    <div style="text-align: left; color:gray">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+          <path
+            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+      </span> 이름으로 찾기
+    </div>
+
     <div>
       <!--검색창-->
       <div class=" input-group mb-3">
@@ -47,8 +68,13 @@
     {{searchText}}
     {{firstLevelBtnId}}
     {{secondLevelBtnId}}
+    {{selectColorCode}}
 
-    <table class="table table-bordered table-sm">
+
+
+    <hr>
+
+    <table class="table table-bordered table-sm ">
       <colgroup>
         <col style="width: 3%">
         <col style="width: 3%">
@@ -62,10 +88,10 @@
         <col style="width: 15%">
       </colgroup>
       <thead>
-        <tr>
+        <tr class="smallWidth">
           <th></th>
-          <th>NO.</th>
-          <th>아이콘</th>
+          <th class="smallTable">NO.</th>
+          <th class="smallTable">아이콘</th>
           <th></th>
           <th>명칭</th>
           <th>제작</th>
@@ -92,8 +118,8 @@
                     d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
                 </svg>
               </td>
-              <td rowspan="3">{{color.id}}</td>
-              <td rowspan="3">
+              <td class="smallTable" rowspan="3">{{color.id}}</td>
+              <td class="smallTable" rowspan="3">
                 <img style="width:100%" :src="getSrc(color.icon)">
               </td>
               <td rowspan="3" v-bind:style="{ 'background': color.code } ">
@@ -102,18 +128,23 @@
               <td rowspan="3">{{color.craft == "true" ? "O" : "X"}}</td>
               <td rowspan="3">{{color.trade == "true" ? "O" : "X"}}</td>
               <td rowspan="3">{{color.market == "true" ? "O" : "X"}}</td>
-              <td v-if="getpriceLength(color.id) == 2">{{ getprice(color.id)[0].price }}</td>
+              <td v-if="getpriceLength(color.id) == 2">
+                {{ getprice(color.id)[0].price }}<br>
+                {{ getprice(color.id)[0].restriced == "true"? "(조건부)" : "" }}
+              </td>
               <td v-if="getpriceLength(color.id) == 2">
                 {{getcurrencyNmKr(getprice(color.id)[0].currencyId)}}
                 <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[0].currencyId))"
-                  style="width:30px; height: 30px;">
+                  style="width:30px; height: 30px;" class="coin">
               </td>
-              <td v-if=" getpriceLength(color.id)==1" rowspan="3">{{ getprice(color.id)[0].price }}
+              <td v-if=" getpriceLength(color.id)==1" rowspan="3">
+                {{ getprice(color.id)[0].price }}<br>
+                {{ getprice(color.id)[0].restriced == "true" ? "(조건부)" : "" }}
               </td>
               <td v-if="getpriceLength(color.id) == 1" rowspan="3">
                 {{getcurrencyNmKr(getprice(color.id)[0].currencyId)}}
                 <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[0].currencyId))"
-                  style="width:30px; height: 30px; ">
+                  style="width:30px; height: 30px; " class="coin">
               </td>
               <td v-if="getpriceLength(color.id) == 0" rowspan="3"></td>
               <td v-if="getpriceLength(color.id) == 0" rowspan="3"></td>
@@ -124,14 +155,16 @@
               <td v-if="getpriceLength(color.id) == 2" rowspan="2">
                 {{getcurrencyNmKr(getprice(color.id)[1].currencyId)}}
                 <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[1].currencyId))"
-                  style="width:30px ; height: 30px;">
+                  style="width:30px ; height: 30px;" class="coin">
               </td>
             </tr>
             <tr v-if=" index==3" @click="listToggle(color.id)" class="border-bottom border-dark">
               <td>{{color.nameKr}}</td>
             </tr>
-            <tr v-if="index==4" v-show="toggleOpen(color.id) ? true : false">
-              <td colspan="10" style="padding-left: 5%;">
+            <tr v-if="index==4" v-show="toggleOpen(color.id) ? true : false" class="table-light">
+
+              <td colspan="10" style="padding-left: 3%;">
+
                 <table class="table secondList">
                   <tr>
                     <td :colspan="getSellNpcLength(color.id)" class="secondListTh">
@@ -168,27 +201,29 @@
                         {{(getSellNpc(color.id))[index-1].locationJp }}
                       </td>
                       <td class="secondListTd">
-                        {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[0])[0].price}}
+                        {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[0])[0].price}}<br>
+                        {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[0])[0].restriced ==
+                        "true"?"(조건부)" : "" }}
                       </td>
                       <td class="secondListTd">
-                        {{
-                        getcurrencyNmKr(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[0])[0].currencyId)
-                        }}
+                        {{getcurrencyNmKr(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[0])[0].currencyId)}}
                         <img
                           :src="getSrcIcon(getcurrencyIcon(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[0])[0].currencyId))"
-                          style="width:30px ; height: 30px;">
+                          style="width:30px ; height: 30px;" class="coin">
                       </td>
                     </tr>
                     <tr v-if=" getSellNpcIdsLength((getSellNpc(color.id))[index - 1].id)==2">
                       <td class="secondListTd">
-                        {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[1])[0].price}}
+                        {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[1])[0].price}}<br>
+                        {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[1])[0].restriced ==
+                        "true"?"(조건부)" : "" }}
                       </td>
                       <td class="secondListTd">
                         {{
                         getcurrencyNmKr(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[1])[0].currencyId)}}
                         <img
                           :src="getSrcIcon(getcurrencyIcon(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[1])[0].currencyId))"
-                          style="width:30px ; height: 30px;">
+                          style="width:30px ; height: 30px;" class="coin">
                       </td>
                     </tr>
                   </template>
@@ -328,7 +363,19 @@
     </table>
 
     -->
+    <br>
+
+    <footer>
+      <div class="card text-center">
+
+        <div class="card-footer text-muted" style="text-align: left;">
+          copyright
+        </div>
+      </div>
+    </footer>
   </div>
+  <br>
+  <br>
 
 </template>
 
@@ -358,7 +405,9 @@ export default {
         secondLevelBtnId: 0,
         selectColor: 0,
         toggleIds: [],
-        searchText:""
+      searchText: "",
+      selectColorCode : 0,
+      secondBtnsFlag: false //두번재 버튼 리스트 전부 보이게,
       }
   },
   mounted() {
@@ -370,12 +419,12 @@ export default {
       this.secondLevelBtnId = 0 
       this.searchText = ""
     },
-    secondLevelBtnClick: function (id, btnType, btnId) {
+    secondLevelBtnClick: function (id, btnType, btnId,code) {
       this.secondLevelBtnId = btnId,
-        this.firstLevelBtnId = btnType,
-        this.selectColor = id
+      this.firstLevelBtnId = btnType,
+      this.selectColor = id
+      this.selectColorCode = code
       this.searchText = ""
-      
     },
     inputClick: function () {
       this.firstLevelBtnId = 0,
@@ -476,38 +525,47 @@ export default {
     },
     //두번재 색깔 버튼
     colorsSecondBtnList() {
-      if (this.firstLevelBtnId == 0) {
 
+      let code =  colorsDataList.map((items) => {
+        return items.code;
+      });
+
+
+      if (this.firstLevelBtnId == 0) {
         return colorsDataList.map((items) => {
           return items;
         });
 
       } else {
-        return colorsDataList.filter(color => color.colorType == this.firstLevelBtnId)
 
+        if (this.firstLevelBtnId == 8) { //특수 염료 선택하면
+          let removeDup = colorsDataList.filter((color, index) => (code.indexOf(color.code) == index)) //중복제거
+          return removeDup.filter(color => color.colorType == this.firstLevelBtnId)
+        }
+
+        return colorsDataList.filter(color => color.colorType == this.firstLevelBtnId)
       }
+
     },
     //염료 리스트
     colorsData() {
       if (this.firstLevelBtnId == 0) {
-
         if (this.searchText != "") {
-
           let upperText = (this.searchText).toUpperCase()
           return colorsData.filter(color => ((color.nameKr).toUpperCase()).includes(upperText) || ((color.name).toUpperCase()).includes(upperText) || ((color.nameJp).toUpperCase()).includes(upperText))
         }
-        
+
         return colorsData.map((items) => {
           return items;
         });
-
       } else if (this.secondLevelBtnId == 0) {
-
         return colorsData.filter(color => color.colorType == this.firstLevelBtnId)
-      
+
       } else {
-        let colorTypeList =  colorsData.filter(color => color.colorType == this.firstLevelBtnId)
-        return colorTypeList.filter(color => color.id == this.selectColor)
+        let colorTypeList = colorsData.filter(color => color.colorType == this.firstLevelBtnId)
+
+      // return colorTypeList.filter(color => color.id == this.selectColor)// id로 필터링
+        return colorTypeList.filter(color => color.code == this.selectColorCode) //코드로 필터링
       }
     },
     
@@ -550,7 +608,7 @@ console.log("currency", currencyData);
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    margin-top: 30px;
   }
   .secondListTh{
     background-color: #cbccce;
@@ -558,6 +616,7 @@ console.log("currency", currencyData);
   }
   .secondListTd{
     border:solid 1px;
+    background-color: white;
   }
   .table-bordered>:not(caption)>*>*{
     line-height: initial;
@@ -588,6 +647,40 @@ console.log("currency", currencyData);
   #firstBtn8{
     background: linear-gradient(318deg, red, orange, yellow, green, blue, indigo, violet, red);
   }
+
+
+
+  @media (max-width: 768px) {
+    .smallTable{
+      
+      display:none
+
+    }
+    .smallWidth>th:nth-child(4) {
+        
+      width: 10%
+    }
+    .smallWidth > th:nth-child(5){
+
+      width:50%
+    }
+   .smallWidth>th:nth-child(9) {
+    
+        width: 15%
+    }
+    .smallWidth>th:nth-child(10) {
+          
+         width: 20%
+    }
+
+    .coin{
+      display: none;
+    }
+    .table{
+      font-size: 15px;
+    }
+  }
+ 
  
  
 

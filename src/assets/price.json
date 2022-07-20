@@ -19,7 +19,7 @@
         "dyeId": "9",
         "currencyId"  : "1",
         "price" : "261",
-        "restriced" : "false"
+        "restriced" : "true"
       }, 
      {
         "id": "4",
