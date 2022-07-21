@@ -1,4 +1,4 @@
-# dye-search
+# FF14 Dye List
 
 ## Project setup
 ```
