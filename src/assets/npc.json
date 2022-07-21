@@ -1,119 +1,25 @@
 {
-  "npc" : [
-      {
-        "id": "1",
-        "name": "",
-        "nameJp"  : "雑貨屋 ウンシンレール",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "リムサ・ロミンサ：下甲板層X:6.0 Y:12.3",
-        "locationEn" : "",
-        "priceId" : ["1"]
+  "npc" : 
+  
+ [
+  {"id":1,"locationJp":"リムサ・ロミンサ：下甲板層 X:6.0 Y:12.3","nameJp":"雑貨屋 ウンシンレール","locationKr":"림사 로민사 하층 갑판 (X:6.0 Y:12.3)","nameKr":"운진레일","location":"Limsa Lominsa Lower Decks (X:6.0 Y:12.3)","name":"Unsynrael","priceId":[1,3]},
+  {"id":2,"locationJp":"グリダニア：旧市街 X:14.3 Y:8.8","nameJp":"雑貨屋 アラリック","locationKr":"그리다니아 구시가지 (X:14.3 Y:8.8)","nameKr":"알라릭","location":"Old Gridania (X:14.3 Y:8.8)","name":"Alaric","priceId":[1,3]},
+  {"id":3,"locationJp":"ウルダハ：ザル回廊 X:14.2 Y:11.0","nameJp":"雑貨屋 ナナベ","locationKr":"울다하 달 회랑 (X:14.2 Y:11.0)","nameKr":"나나베","location":"Ul'dah - Steps of Thal (X:14.2 Y:11.0)","name":"Nanabe","priceId":[1,3]},
+  {"id":4,"locationJp":"イシュガルド：上層 X:6.0 Y:9.9","nameJp":"よろず屋 フリヌ","locationKr":"이슈가르드 상층 (X:6.0 Y:9.9)","nameKr":"프린","location":"The Pillars (X:6.0 Y:9.9)","name":"Frine","priceId":[1,3]},
+  {"id":5,"locationJp":"蒼天街 X:12.2 Y:14.2","nameJp":"エイロンウィー","locationKr":"창천 거리 (X:12.2 Y:14.2)","nameKr":"에일롱위","location":"The Firmament (X:12.2 Y:14.2)","name":"Eilonwy","priceId":[1,3]},
+  {"id":6,"locationJp":"イディルシャイア X:4.5 Y:6.4","nameJp":"速筆の画家","locationKr":"이딜샤이어 (X:4.5 Y:6.4)","nameKr":"손 빠른 화가","location":"Idyllshire (X:4.5 Y:6.4)","name":"Joyous Painter","priceId":[1,3]},
+  {"id":7,"locationJp":"クガネ X:12.9 Y:12.2","nameJp":"よろず屋 トコハナ","locationKr":"쿠가네 (X:12.9 Y:12.2)","nameKr":"토코하나","location":"Kugane (X:12.9 Y:12.2)","name":"Tokohana","priceId":[1,3]},
+  {"id":8,"locationJp":"ゴールドソーサー X:7.2 Y:7.3","nameJp":"カスミ","locationKr":"골드 소서 (X:7.2 Y:7.3)","nameKr":"카스미","location":"The Gold Saucer (X:7.2 Y:7.3)","name":"Kasumi","priceId":[]},
+  {"id":9,"locationJp":"蒼天街 X: 12.0 Y:14.0","nameJp":"エニー","locationKr":"창천 거리(X:12.0 Y:14.0)","nameKr":"에니","location":"Enie (X:12.0 Y:14.0)","name":"The Firmament ","priceId":[17]},
+  {"id":10,"locationJp":"黒衣森：北部森林 X:24.9 Y:22.7","nameJp":"イクサル族のよろず屋","locationKr":"검은장막 숲 북부삼림 (X:24.9 Y:22.7)","nameKr":"이크살족 만물상","location":"North Shroud (X:24.9 Y:22.7)","name":"Ixali Vendor","priceId":[2]},
+  {"id":11,"locationJp":"南ザナラーン X:23.2 Y:14.1","nameJp":"アマルジャ族のよろず屋","locationKr":"남부 다날란 (X:23.2 Y:14.1)","nameKr":"아말쟈족 만물상","location":"Southern Thanalan (X:23.2 Y:14.1)","name":"Amalj'aa Vendor","priceId":[]},
+  {"id":12,"locationJp":"外地ラノシアX:21.6 Y:17.8","nameJp":"コボルド族のよろず屋","locationKr":"외지 라노시아 (X:21.6 Y:17.8)","nameKr":"코볼드족 만물상","location":"Outer La Noscea (X:21.6 Y:17.8)","name":"Kobold Vendor","priceId":[]},
+  {"id":13,"locationJp":"西ラノシア X:16.9 Y:22.4","nameJp":"サハギン族のよろず屋","locationKr":"서부 라노시아 (X:16.9 Y:22.4)","nameKr":"사하긴족 만물상","location":"Western La Noscea (X:16.9 Y:22.4)","name":"Sahagin Vendor","priceId":[]},
+  {"id":14,"locationJp":"黒衣森：東部森林 X:22.3 Y:26.3","nameJp":"シルフ族のよろず屋","locationKr":"검은장막 숲 동부삼림 (X:22.3 Y:26.3)","nameKr":"실프족 만물상","location":"East Shroud (X:22.3 Y:26.3)","name":"Sylphic Vendor","priceId":[]},
+  {"id":15,"locationJp":"リムサ・ロミンサ：上甲板層 X:11.3 Y:14.3","nameJp":"遺失物管理人","locationKr":"림사 로민사 상층 갑판 (X:11.3 Y:14.3)","nameKr":"유실물 관리인","location":"Limsa Lominsa Upper Decks (X:11.3 Y:14.3)","name":"Calamity Salvager","priceId":[]},
+  {"id":16,"locationJp":"グリダニア：旧市街 X:10.0 Y:8.4","nameJp":"遺失物管理人","locationKr":"그리다니아 구시가지 (X:10.0 Y:8.4)","nameKr":"유실물 관리인","location":"Old Gridania (X:10.0 Y:8.4)","name":"Calamity Salvager","priceId":[]},
+  {"id":17,"locationJp":"ウルダハ：ザル回廊 X:12.6 Y:13.1","nameJp":"遺失物管理人","locationKr":"울다하 달 회랑 (X:12.6 Y:13.1)","nameKr":"유실물 관리인","location":"Ul'dah - Steps of Thal (X:12.6 Y:13.1)","name":"Calamity Salvager","priceId":[]}
 
-      }, 
-     {
-         "id": "2",
-        "name": "",
-        "nameJp"  : "雑貨屋 アラリック",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "グリダニア：旧市街X:14.3 Y:8.8",
-        "locationEn" : "",
-        "priceId" :  ["1"]
-
-      }, 
-     {
-        "id": "3",
-        "name": "",
-        "nameJp"  : "雑貨屋 ナナベ",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "ウルダハ：ザル回廊X:14.2 Y:11.0",
-        "locationEn" : "",
-        "priceId" :  ["1"]
-      },
-            {
-        "id": "4",
-        "name": "",
-        "nameJp"  : "よろず屋 フリヌ",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "イシュガルド：上層X:6.0 Y:9.9",
-        "locationEn" : "",
-        "priceId" :   ["1"]
-
-      }, 
-     {
-         "id": "5",
-        "name": "",
-        "nameJp"  : "エイロンウィー",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "蒼天街X:12.2 Y:14.2",
-        "locationEn" : "",
-        "priceId" : ["1"]
-      }, 
-     {
-        "id": "6",
-        "name": "",
-        "nameJp"  : "速筆の画家",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "イディルシャイアX:4.5 Y:6.4",
-        "locationEn" : "",
-        "priceId" :   ["1"]
-      },
-            {
-        "id": "7",
-        "name": "",
-        "nameJp"  : "よろず屋 トコハナ",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "クガネX:12.9 Y:12.2",
-        "locationEn" : "",
-        "priceId" :  ["1"]
-
-      }, 
-     {
-         "id": "8",
-        "name": "",
-        "nameJp"  : "イクサル族のよろず屋",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "黒衣森：北部森林X:24.9 Y:22.7",
-        "locationEn" : "",
-        "priceId" :   ["2"]
-      }, 
-     {
-        "id": "9",
-        "name": "",
-        "nameJp"  : "サハギン族のよろず屋",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "西ラノシアX:16.9 Y:22.4",
-        "locationEn" : "",
-        "priceId" : ["3","4"]
-      },
-           {
-        "id": "10",
-        "name": "",
-        "nameJp"  : "エニー",
-        "nameKr" : "",
-        "location" : "",
-        "locationkr" : "",
-        "locationJp" : "蒼天街 X: 12.0 Y: 14.0",
-        "locationEn" : "",
-        "priceId" : ["5"]
-      }
-  ]
+]
 }
 

@@ -44,7 +44,7 @@
 
       </div>
 
-      <br>
+  
       <hr>
       <div style="text-align: left; color:gray">
         <span>
@@ -64,11 +64,13 @@
         </div>
       </div>
 
+      <!--
+
       {{searchText}}
       {{firstLevelBtnId}}
       {{secondLevelBtnId}}
       {{selectColorCode}}
-
+      -->
 
 
       <hr>
@@ -125,13 +127,13 @@
                 </td>
                 <td rowspan="3" v-bind:style="{ 'background': color.code } ">
                 </td>
-                <td>{{color.nameKr}}</td>
-                <td rowspan="3">{{color.craft == "true" ? "O" : "X"}}</td>
-                <td rowspan="3">{{color.trade == "true" ? "O" : "X"}}</td>
-                <td rowspan="3">{{color.market == "true" ? "O" : "X"}}</td>
+                <td style="font-weight: 600;">{{color.nameKr}}</td>
+                <td rowspan="3">{{color.craft == "TRUE" ? "O" : "X"}}</td>
+                <td rowspan="3">{{ color.trade == "TRUE" ? "O" : "X"}}</td>
+                <td rowspan="3">{{ color.market == "TRUE" ? "O" : "X"}}</td>
                 <td v-if="getpriceLength(color.id) == 2">
                   {{ getprice(color.id)[0].price }}<br>
-                  {{ getprice(color.id)[0].restriced == "true"? "(조건부)" : "" }}
+                  {{ getprice(color.id)[0].restriced == "TRUE"? "(조건부)" : "" }}
                 </td>
                 <td v-if="getpriceLength(color.id) == 2">
                   {{getcurrencyNmKr(getprice(color.id)[0].currencyId)}}
@@ -140,7 +142,7 @@
                 </td>
                 <td v-if=" getpriceLength(color.id)==1" rowspan="3">
                   {{ getprice(color.id)[0].price }}<br>
-                  {{ getprice(color.id)[0].restriced == "true" ? "(조건부)" : "" }}
+                  {{ getprice(color.id)[0].restriced == "TRUE" ? "(조건부)" : "" }}
                 </td>
                 <td v-if="getpriceLength(color.id) == 1" rowspan="3">
                   {{getcurrencyNmKr(getprice(color.id)[0].currencyId)}}
@@ -151,7 +153,7 @@
                 <td v-if="getpriceLength(color.id) == 0" rowspan="3"></td>
               </tr>
               <tr v-if="index==2" @click="listToggle(color.id)">
-                <td>{{ color.nameJp }}</td>
+                <td style="font-weight: 600;">{{ color.nameJp }}</td>
                 <td v-if="getpriceLength(color.id) == 2" rowspan="2">{{getprice(color.id)[1].price }}</td>
                 <td v-if="getpriceLength(color.id) == 2" rowspan="2">
                   {{getcurrencyNmKr(getprice(color.id)[1].currencyId)}}
@@ -160,7 +162,7 @@
                 </td>
               </tr>
               <tr v-if=" index==3" @click="listToggle(color.id)" class="border-bottom border-dark">
-                <td>{{ color.name }}</td>
+                <td style="font-weight: 600;">{{ color.name }}</td>
               </tr>
               <tr v-if="index==4" v-show="toggleOpen(color.id) && getSellNpcLength(color.id) >0 ? true : false"
                 class="table-light" @click="listToggle(color.id)">
@@ -196,16 +198,16 @@
                       <tr>
                         <td :rowspan="getSellNpcIdsLength((getSellNpc(color.id))[index - 1].id)" class="secondListTd"
                           :colspan="getSellNpcLength(color.id)">
-                          {{(getSellNpc(color.id))[index-1].nameJp }}
+                          {{(getSellNpc(color.id))[index-1].nameKr }}
                         </td>
                         <td class="secondListTd" :rowspan="getSellNpcIdsLength((getSellNpc(color.id))[index - 1].id)"
                           :colspan="getSellNpcLength(color.id)">
-                          {{(getSellNpc(color.id))[index-1].locationJp }}
+                          {{ (getSellNpc(color.id))[index - 1].locationKr }}
                         </td>
                         <td class="secondListTd">
                           {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[0])[0].price}}<br>
                           {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[0])[0].restriced ==
-                          "true"?"(조건부)" : "" }}
+                          "TRUE"?"(조건부)" : "" }}
                         </td>
                         <td class="secondListTd">
                           {{getcurrencyNmKr(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[0])[0].currencyId)}}
@@ -218,7 +220,7 @@
                         <td class="secondListTd">
                           {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[1])[0].price}}<br>
                           {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[1])[0].restriced ==
-                          "true"?"(조건부)" : "" }}
+                          "TRUE"?"(조건부)" : "" }}
                         </td>
                         <td class="secondListTd">
                           {{
@@ -366,19 +368,19 @@
 
       -->
       <br>
-  </div>
-  <!--
-  <footer>
-    <div class="card text-center">
+    </div>
 
-      <div class="card-footer text-muted" style="text-align: left;">
+    <footer>
+      <div class="card text-center">
+
+        <div class="card-footer text-muted" style="text-align: left;">
           Copyright ©2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved.
-        <br>
-          Version: Patch 6.18
+          <br>
+          v.6.18
+        </div>
       </div>
-      </div>
-  </footer>
-  -->
+    </footer>
+
   </div>
 
 </template>
@@ -610,12 +612,9 @@ export default {
 
 }
 
-console.log("colorsData",colorsData);
-console.log("priceData", priceData);
-console.log("currency", currencyData);
-
-
-
+//console.log("colorsData",colorsData);
+//console.log("priceData", priceData);
+//console.log("currency", currencyData);
 
 </script>
 
@@ -627,12 +626,6 @@ console.log("currency", currencyData);
     text-align: center;
     color: #2c3e50;
     margin-top: 30px;
-
-    height: auto;
-    min-height: 100%;
-    padding-bottom: 30px;
-
-
   }
   .secondListTh{
     background-color: #cbccce;

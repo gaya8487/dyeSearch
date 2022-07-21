@@ -1,26 +1,15 @@
 {
   "currency" : [
-      {
-        "id": "1",
-        "name": "Gil",
-        "nameJp"  : "ギル",
-        "nameKr" : "길",
-        "icon" : "gil"
-      }, 
-     {
-        "id": "2",
-        "name": "Rainbowtide Psashp",
-        "nameJp"  : "サハギン虹貝貨1",
-        "nameKr" : "사하긴채패화",
-        "icon" : "sahagin"
-      }, 
-     {
-        "id": "3",
-        "name": "Skybuilders' Scrip",
-        "nameJp"  : "蒼天街振興券",
-        "nameKr" : "창천 거리 진흥권",
-        "icon" : "skybuiler"
-      }
+    {"id":1,"icon":"gil","nameKr":"길","nameJp":"ギル","name":"Gil"},
+    {"id":2,"icon":"Ixali","nameKr":"이크살 떡갈나무 화폐","nameJp":"イクサル樫木貨","name":"Ixali Oaknot"},
+    {"id":3,"icon":"Titan","nameKr":"코볼드 코발트화","nameJp":"コボルド鏡鉄錘貨","name":"Titan Cobaltpiece"},
+    {"id":4,"icon":"Sylphic","nameKr":"실프 금엽화","nameJp":"シルフ金葉貨","name":"Sylphic Goldleaf"},
+    {"id":5,"icon":"Psashp","nameKr":"사하긴 채패화","nameJp":"サハギン虹貝貨","name":"Rainbowtide Psashp"},
+    {"id":6,"icon":"Amalj'ok","nameKr":"아말쟈 강철도화","nameJp":"アマルジャ鋼鉄刀貨","name":"Steel Amalj'ok"},
+    {"id":7,"icon":"skybuiler","nameKr":"창천 거리 진흥권","nameJp":"蒼天街振興券","name":"Skybuilders' Scrip"},
+    {"id":8,"icon":"Fete","nameKr":"창천 운동회 참가 증서","nameJp":"フェトゥ参加証","name":"Fête Token"},
+    {"id":9,"icon":"silver_chocobo","nameKr":"은빛 초코보 깃털","nameJp":"シルバーチョコボの羽根","name":"Silver Chocobo Feather"},
+    {"id":10,"icon":"gold_chocobo","nameKr":"금빛 초코보 깃털","nameJp":"ゴールドチョコボの羽根1","name":"Gold Chocobo Feather"}
   ]
 }
 
