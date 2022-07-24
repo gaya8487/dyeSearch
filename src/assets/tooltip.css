@@ -5,11 +5,11 @@
     --v-tooltip-left-offset: 0px;
     --v-tooltip-top-offset: 0px;
     --v-tooltip-width: max-content;
-    --v-tooltip-background-color:#cccccc;
-    --v-tooltip-color: #242424;
+    --v-tooltip-background-color:#6c757d;
+    --v-tooltip-color: #f8f9fa;
     --v-tooltip-border-radius: 0.4rem;
     --v-tooltip-padding: 0.6em;
-    --v-tooltip-font-size: 0.8rem;
+    --v-tooltip-font-size: 1rem;
     --v-tooltip-border: none;
     --v-tooltip-box-shadow: none;
     --v-tooltip-transition-duration: 0.25s;

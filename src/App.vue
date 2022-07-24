@@ -9,18 +9,40 @@
 
 
   <div id="container" class="container">
-    <div id='wrapper'>
-      <!--색깔 버튼-->
-      <hr>
-      <div style="text-align: left; color:gray">
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-            <path
-              d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-          </svg>
-        </span> 색으로 찾기
+    <div id='wrapper' style="padding-top:5%">
+      <div >
+        <div style="text-align:left; width:70%; float:left">
+          <span style="text-align:left; color:black; font-size:32px">
+            FF14 염료 리스트   
+          </span>
+          <span style="color:gray;"> v6.18</span>
+        </div>
+      
+        <div style="float:right; width:30%; float:right">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="float:right">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked  v-on:click="langBtn('K')">
+              <label class="btn btn-outline-secondary" for="btnradio1"> K </label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" v-on:click="langBtn('J')">
+              <label class="btn btn-outline-secondary" for="btnradio2"> J </label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" v-on:click="langBtn('E')">
+              <label class="btn btn-outline-secondary" for="btnradio3"> E </label>
+            </div>
+        </div>
       </div>
+      <!--색깔 버튼-->
+   
+      <div >
+        <span style="display:block"> </span> ㅤ
+      </div>
+      <div style="text-align:left"> 
+        <hr>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+          <path
+              d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+          </svg>색으로 찾기 
+       </div>
       <div style="background:silver	; border-radius:10px; padding:9px ; border: 1px solid;">
         <div>
           <div style="text-align:left">
@@ -36,7 +58,7 @@
               <button class="secondLevelBtn" v-bind:id="'secondBtn'+ color.id"
                 v-on:click="secondLevelBtnClick(color.id, color.colorType,color.btnId,color.code)"
                 v-bind:style="[{ 'background': color.code }, secondLevelBtnId == color.btnId ? {'border':'solid' } : {'border':'none'} ] "
-                v-tooltip="color.nameKr">
+                v-tooltip="colorNm(color.id)">
               </button>
             </span>
           </div>
@@ -46,7 +68,7 @@
 
   
       <hr>
-      <div style="text-align: left; color:gray">
+      <div style="text-align: left; ">
         <span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
             class="bi bi-caret-right-fill" viewBox="0 0 16 16">
@@ -70,7 +92,9 @@
       {{firstLevelBtnId}}
       {{secondLevelBtnId}}
       {{selectColorCode}}
-      -->
+      {{lang}}
+      
+       -->
 
 
       <hr>
@@ -133,19 +157,24 @@
                 <td rowspan="3">{{ color.market == "TRUE" ? "O" : "X"}}</td>
                 <td v-if="getpriceLength(color.id) == 2">
                   {{ getprice(color.id)[0].price }}<br>
-                  {{ getprice(color.id)[0].restriced == "TRUE"? "(조건부)" : "" }}
+                  <span v-if="lang=='K'">{{ getprice(color.id)[0].restriced == "TRUE"? "(조건부)" : "" }}</span>
+                  <span v-if="lang=='J'">{{ getprice(color.id)[0].restriced == "TRUE"? "(購入条件付)" : "" }}</span>
+                  <span v-if="lang=='E'">{{ getprice(color.id)[0].restriced == "TRUE"? "(Restricted)" : "" }}</span>
+
                 </td>
                 <td v-if="getpriceLength(color.id) == 2">
-                  {{getcurrencyNmKr(getprice(color.id)[0].currencyId)}}
+                  {{getcurrencyNm(getprice(color.id)[0].currencyId)}}
                   <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[0].currencyId))"
                     style="width:30px; height: 30px;" class="coin">
                 </td>
                 <td v-if=" getpriceLength(color.id)==1" rowspan="3">
                   {{ getprice(color.id)[0].price }}<br>
-                  {{ getprice(color.id)[0].restriced == "TRUE" ? "(조건부)" : "" }}
+                  <span  v-if="lang=='K'" >{{ getprice(color.id)[0].restriced == "TRUE" ? "(조건부)" : "" }}</span>
+                  <span  v-if="lang=='J'" >{{ getprice(color.id)[0].restriced == "TRUE" ? "(購入条件付)" : "" }}</span>
+                  <span  v-if="lang=='E'" >{{ getprice(color.id)[0].restriced == "TRUE" ? "(Restricted)" : "" }}</span>
                 </td>
                 <td v-if="getpriceLength(color.id) == 1" rowspan="3">
-                  {{getcurrencyNmKr(getprice(color.id)[0].currencyId)}}
+                  {{getcurrencyNm(getprice(color.id)[0].currencyId)}}
                   <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[0].currencyId))"
                     style="width:30px; height: 30px; " class="coin">
                 </td>
@@ -156,7 +185,7 @@
                 <td style="font-weight: 600;">{{ color.nameJp }}</td>
                 <td v-if="getpriceLength(color.id) == 2" rowspan="2">{{getprice(color.id)[1].price }}</td>
                 <td v-if="getpriceLength(color.id) == 2" rowspan="2">
-                  {{getcurrencyNmKr(getprice(color.id)[1].currencyId)}}
+                  {{getcurrencyNm(getprice(color.id)[1].currencyId)}}
                   <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[1].currencyId))"
                     style="width:30px ; height: 30px;" class="coin">
                 </td>
@@ -196,37 +225,61 @@
 
                     <template v-for=" index in getSellNpcLength(color.id)" :key="index">
                       <tr>
-                        <td :rowspan="getSellNpcIdsLength((getSellNpc(color.id))[index - 1].id)" class="secondListTd"
+                        <td :rowspan="getPriceByIdsLength((getSellNpc(color.id))[index - 1].id,color.id)" class="secondListTd"
                           :colspan="getSellNpcLength(color.id)">
-                          {{(getSellNpc(color.id))[index-1].nameKr }}
+                            <span v-if="lang=='K'" >{{(getSellNpc(color.id))[index-1].nameKr }}</span>
+                            <span v-if="lang=='J'" >{{(getSellNpc(color.id))[index-1].nameJp }}</span>
+                            <span v-if="lang=='E'" >{{(getSellNpc(color.id))[index-1].name }}</span>
                         </td>
-                        <td class="secondListTd" :rowspan="getSellNpcIdsLength((getSellNpc(color.id))[index - 1].id)"
+                        <td class="secondListTd" :rowspan="getPriceByIdsLength((getSellNpc(color.id))[index - 1].id,color.id)"
                           :colspan="getSellNpcLength(color.id)">
-                          {{ (getSellNpc(color.id))[index - 1].locationKr }}
+                            <span v-if="lang=='K'" >{{ (getSellNpc(color.id))[index - 1].locationKr }}</span>
+                            <span v-if="lang=='J'" >{{ (getSellNpc(color.id))[index - 1].locationJp }}</span>
+                            <span v-if="lang=='E'" >{{ (getSellNpc(color.id))[index - 1].location }}</span>
                         </td>
                         <td class="secondListTd">
-                          {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[0])[0].price}}<br>
-                          {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[0])[0].restriced ==
-                          "TRUE"?"(조건부)" : "" }}
+                           {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[0])[0].price}}
+                           <span v-if="lang=='K'">
+                            {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[0])[0].restriced ==
+                            "TRUE"?"(조건부)" : "" }}
+                           </span>
+                          <span v-if="lang=='J'">
+                            {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[0])[0].restriced ==
+                            "TRUE"?"(購入条件付)" : "" }}
+                            </span>
+                          <span v-if="lang=='E'">
+                            {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[0])[0].restriced ==
+                            "TRUE"?"(Restricted)" : "" }}
+                          </span>
                         </td>
                         <td class="secondListTd">
-                          {{getcurrencyNmKr(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[0])[0].currencyId)}}
+                          {{ getcurrencyNm(getpriceById(getPriceByIds((getSellNpc(color.id))[index-1].id,color.id)[0])[0].currencyId)}} 
                           <img
-                            :src="getSrcIcon(getcurrencyIcon(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[0])[0].currencyId))"
+                            :src="getSrcIcon(getcurrencyIcon(getpriceById(getPriceByIds((getSellNpc(color.id))[index-1].id,color.id)[0])[0].currencyId))"
                             style="width:30px ; height: 30px;" class="coin">
-                        </td>
+                        </td> 
                       </tr>
-                      <tr v-if=" getSellNpcIdsLength((getSellNpc(color.id))[index - 1].id)==2">
+                      <tr v-if=" getPriceByIdsLength((getSellNpc(color.id))[index - 1].id,color.id)==2">
                         <td class="secondListTd">
-                          {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[1])[0].price}}<br>
-                          {{ getpriceById(getSellNpcIds((getSellNpc(color.id))[index - 1].id)[1])[0].restriced ==
-                          "TRUE"?"(조건부)" : "" }}
+                           {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[1])[0].price}}
+                            <span v-if="lang=='K'">
+                              {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[1])[0].restriced ==
+                              "TRUE"?"(조건부)" : "" }}
+                           </span>
+                           <span v-if="lang=='J'">
+                              {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[1])[0].restriced ==
+                              "TRUE"?"(購入条件付)" : "" }}
+                            </span>
+                            <span v-if="lang=='E'">
+                            {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[1])[0].restriced ==
+                            "TRUE"?"(Restricted)" : "" }}
+                          </span>
                         </td>
                         <td class="secondListTd">
-                          {{
-                          getcurrencyNmKr(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[1])[0].currencyId)}}
+                           
+                            {{ getcurrencyNm(getpriceById(getPriceByIds((getSellNpc(color.id))[index-1].id,color.id)[1])[0].currencyId)}} 
                           <img
-                            :src="getSrcIcon(getcurrencyIcon(getpriceById(getSellNpcIds((getSellNpc(color.id))[index-1].id)[1])[0].currencyId))"
+                            :src="getSrcIcon(getcurrencyIcon(getpriceById(getPriceByIds((getSellNpc(color.id))[index-1].id,color.id)[1])[0].currencyId))"
                             style="width:30px ; height: 30px;" class="coin">
                         </td>
                       </tr>
@@ -239,148 +292,8 @@
         </tbody>
 
       </table>
-
-
-
-      <!--
-
-      <table class=" table table-bordered">
-        <colgroup>
-          <col style="width: 3%">
-          <col style="width: 6%">
-          <col style="width: 100px">
-          <col style="width: ">
-          <col style="width: 8%">
-          <col style="width: 8%">
-          <col style="width: 8%">
-          <col style="width: 10%">
-          <col style="width: 10%">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>NO.</th>
-            <th>아이콘</th>
-            <th></th>
-            <th>명칭</th>
-            <th>제작</th>
-            <th>거래 가능</th>
-            <th>상점 판매</th>
-            <th>가격</th>
-            <th>화폐</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="firstList">
-            <td rowspan="3">1</td>
-            <td rowspan="3">
-              <img style="width:100%"
-                src="https://img.finalfantasyxiv.com/lds/pc/global/images/itemicon/4a/4a6d8277e74b6b7bc5553cbbeeee9ac543919604.png?n6.18">
-            </td>
-            <td rowspan="3" style="background:#e4dfd0;">
-            </td>
-            <td> Snow White Dye</td>
-            <td rowspan="3">ㅇ</td>
-            <td rowspan="3">ㅇ</td>
-            <td rowspan="3">ㅇ</td>
-            <td rowspan="3">261(조건부)</td>
-            <td rowspan="3">길</td>
-          </tr>
-          <tr class="firstList">
-            <td>カララント:スノウホワイト</td>
-          </tr>
-          <tr class="firstList">
-            <td>염료 : 하얀눈색</td>
-          </tr>
-          <tr class="firstList">
-            <td rowspan="3" class="border">2</td>
-            <td rowspan="3">
-              <img style="width:100%"
-                src="https://img.finalfantasyxiv.com/lds/pc/global/images/itemicon/2b/2b2c7c5e38813cfd8abeb53a9468e94634ff245e.png?n6.18">
-            </td>
-            <td rowspan="3" style="background:#04afcd;"></td>
-            <td>カララント:ターコイズブルー</td>
-            <td rowspan="3">x</td>
-            <td rowspan="3">ㅇ</td>
-            <td rowspan="3">x</td>
-            <td rowspan="3">100</td>
-            <td rowspan="3">蒼天街振興券</td>
-          </tr>
-          <tr class="firstList">
-            <td>Turquoise Blue Dye</td>
-          </tr>
-          <tr class="firstList">
-            <td>염료 : 담청색</td>
-          </tr>
-          <tr class="secondSList" v-show="true">
-            <td colspan="9">
-              <table class="table secondList">
-                <tr>
-                  <td rowspan="2" width="4%">
-                    <div style="font-size: 30px;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-arrow-return-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                          d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
-                      </svg>
-                    </div>
-                  </td>
-                  <td colspan="3" class="secondListTh">판매 NPC</td>
-                  <td colspan="3" class="secondListTh">위치</td>
-                  <td class="secondListTh">가격</td>
-                  <td class="secondListTh">화폐</td>
-                </tr>
-                <tr>
-                  <td class="secondListTd" colspan="3">エニー</td>
-                  <td class="secondListTd" colspan="3">蒼天街<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X: 12.0 Y: 14.0</td>
-                  <td class="secondListTd">100</td>
-                  <td class="secondListTd">蒼天街振興券</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-
-          <tr class="firstList">
-            <td rowspan="3">3</td>
-            <td rowspan="3">
-              <img style="width:100%"
-                src="https://img.finalfantasyxiv.com/lds/pc/global/images/itemicon/93/932a7604a7306e2626bcd6811eb2a828c3451f86.png?n6.18">
-            </td>
-            <td rowspan="3" style="background:#abb054;">
-            </td>
-            <td>Lime Green Dye</td>
-            <td rowspan="3">x</td>
-            <td rowspan="3">ㅇ</td>
-            <td rowspan="3">ㅇ</td>
-            <td>216(조건부)</td>
-            <td>길</td>
-          </tr>
-          <tr class="firstList">
-            <td>カララント:ライムグリーン</td>
-            <td rowspan="2">1</td>
-            <td rowspan="2">실프금엽화</td>
-          </tr>
-          <tr class="firstList">
-            <td>염료 : 라임색</td>
-          </tr>
-        </tbody>
-      </table>
-
-      -->
       <br>
     </div>
-
-    <footer>
-      <div class="card text-center">
-
-        <div class="card-footer text-muted" style="text-align: left;">
-          Copyright ©2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved.
-          <br>
-          v.6.18
-        </div>
-      </div>
-    </footer>
-
   </div>
 
 </template>
@@ -413,7 +326,8 @@ export default {
       toggleIds: [],
       searchText: "",
       selectColorCode : 0,
-      secondBtnsFlag: false //두번재 버튼 리스트 전부 보이게,
+      secondBtnsFlag: false, //두번재 버튼 리스트 전부 보이게,
+      lang: "K"
       }
   },
   mounted() {
@@ -430,7 +344,6 @@ export default {
     
       this.secondLevelBtnId = 0 
       this.searchText = ""
-
 
     },
     secondLevelBtnClick: function (id, btnType, btnId,code) {
@@ -450,6 +363,24 @@ export default {
       this.firstLevelBtnId = 0,
         this.secondLevelBtnId = 0
     },
+    langBtn :function(lang){
+      this.lang = lang
+    },
+    colorNm :function(dyeId){
+     let colorList =  colorsData.filter(color => color.id == dyeId)
+
+      if(this.lang =="K"){
+        return colorList.map((color) => {return color.nameKr})[0]
+      }else if(this.lang =="J"){
+        return  colorList.map((color) => {return color.nameJp})[0]
+      }else if(this.lang =="E"){
+        return colorList.map((color) => {return color.name})[0]
+      }else{
+        return colorList.map((color) => {return color.nameKr})[0]
+      }
+
+    },
+
     listToggle: function (colorId) {
 
       if (this.toggleIds.includes(colorId)) {
@@ -486,8 +417,17 @@ export default {
     getpriceLength: function (dyeId) {
       return priceData.filter(price => price.dyeId == dyeId).length
     },
-    getcurrencyNmKr: function (currencyId) {
-      return currencyData.filter(currency => currency.id == currencyId)[0].nameKr
+    getcurrencyNm: function (currencyId) {
+      if(this.lang =='K'){
+        return currencyData.filter(currency => currency.id == currencyId)[0].nameKr
+      }else if(this.lang=='J'){
+        return currencyData.filter(currency => currency.id == currencyId)[0].nameJp
+      }else if(this.lang=='E'){
+        return currencyData.filter(currency => currency.id == currencyId)[0].name
+      }else{
+        return currencyData.filter(currency => currency.id == currencyId)[0].nameKr
+      }
+      
     },
     getcurrencyIcon: function (currencyId) {
       return currencyData.filter(currency => currency.id == currencyId)[0].icon
@@ -525,15 +465,49 @@ export default {
       }
       return sellNpcList.length
     },
-    getSellNpcIdsLength: function (npcId) {
+    getPriceByIdsLength: function (npcId,dyeId) {
+    
+      let price = priceData.filter(price=>price.dyeId == dyeId )
+      let priceList = price.map((item) => {return item.id})
 
-      let  npclist = npcData.filter(npc => npc.id == npcId)
-      return npclist.map((item) => { return item.priceId })[0].length
+      let sellNpc = npcData.filter(npc => npc.id == npcId)
+      let npcsPrice = sellNpc.map((item) => { return item.priceId })
+      let npcsPricesArr = npcsPrice.toString().split(",")  
+      let sellpriceList = new Array();
+
+      for (var i = 0; i < npcsPricesArr.length; i++) {
+
+          if (priceList.includes(parseInt(npcsPricesArr[i]))) {
+
+            sellpriceList.push(parseInt(npcsPricesArr));
+          }
+      }
+
+      return sellpriceList.length;
+
     },
-    getSellNpcIds: function (npcId) {
+    getPriceByIds: function (npcId,dyeId) {
 
-      let npclist = npcData.filter(npc => npc.id == npcId)
-      return npclist.map((item) => { return item.priceId })[0]
+      let price = priceData.filter(price=>price.dyeId == dyeId )
+      let priceList = price.map((item) => {return item.id})
+      //console.log("priceList" , priceList)
+
+      let sellNpc = npcData.filter(npc => npc.id == npcId)
+      let npcsPrice = sellNpc.map((item) => { return item.priceId })
+      let npcsPricesArr = npcsPrice.toString().split(",") 
+    
+      let sellpriceList = new Array();
+
+      for (var i = 0; i < npcsPricesArr.length; i++) {
+
+          if (priceList.includes(parseInt(npcsPricesArr[i]))) {
+
+            sellpriceList.push(parseInt(npcsPricesArr[i]));
+          }
+      }
+ 
+
+      return sellpriceList;
     },
 
   }, 

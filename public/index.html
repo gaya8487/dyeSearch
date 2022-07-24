@@ -1,23 +1,60 @@
 <!DOCTYPE html>
 <html lang="">
+ <!--     
+
+  |     ∧
+  | ＿ ／  ＼
+　|　　 　   ＼　
+　|　 ,ノ　   ＼
+　|　 (●）ｕ  ＼
+　|人    　   |  
+　|   　　　 ／   
+⌒ー─’　 　）   
+   
+          -->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <!--<title><%= htmlWebpackPlugin.options.title %></title>-->
-    <title>Dye List</title>
+    <title>FF14 Dye List</title>
   </head>
   <body>
+
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-  <div id="footer"></div>
+  <footer>
+    <div id="container" class="container">
+    <div class="card text-center">
+
+      <div class="card-footer text-muted" style="text-align: left;">
+        <span>
+        기재되어있는 회사명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록 상표입니다.<br>
+        Copyright ©2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved.  
+        </span>
+      </div>
+    </div>
+    <div id="container" class="container">
+  </footer>
 </html>
 
 <style>
+
+#app{
+  height: auto;
+  min-height: 1200px;
+  padding-bottom: 30px;
+}
+footer{
+  height: 30px;
+  position : relative;
+  transform : translateY(-100%);
+  font-size: 13px;
+}
 
 </style>

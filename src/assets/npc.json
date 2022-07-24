@@ -14,7 +14,7 @@
   {"id":10,"locationJp":"黒衣森：北部森林 X:24.9 Y:22.7","nameJp":"イクサル族のよろず屋","locationKr":"검은장막 숲 북부삼림 (X:24.9 Y:22.7)","nameKr":"이크살족 만물상","location":"North Shroud (X:24.9 Y:22.7)","name":"Ixali Vendor","priceId":[2]},
   {"id":11,"locationJp":"南ザナラーン X:23.2 Y:14.1","nameJp":"アマルジャ族のよろず屋","locationKr":"남부 다날란 (X:23.2 Y:14.1)","nameKr":"아말쟈족 만물상","location":"Southern Thanalan (X:23.2 Y:14.1)","name":"Amalj'aa Vendor","priceId":[]},
   {"id":12,"locationJp":"外地ラノシアX:21.6 Y:17.8","nameJp":"コボルド族のよろず屋","locationKr":"외지 라노시아 (X:21.6 Y:17.8)","nameKr":"코볼드족 만물상","location":"Outer La Noscea (X:21.6 Y:17.8)","name":"Kobold Vendor","priceId":[]},
-  {"id":13,"locationJp":"西ラノシア X:16.9 Y:22.4","nameJp":"サハギン族のよろず屋","locationKr":"서부 라노시아 (X:16.9 Y:22.4)","nameKr":"사하긴족 만물상","location":"Western La Noscea (X:16.9 Y:22.4)","name":"Sahagin Vendor","priceId":[]},
+  {"id":13,"locationJp":"西ラノシア X:16.9 Y:22.4","nameJp":"サハギン族のよろず屋","locationKr":"서부 라노시아 (X:16.9 Y:22.4)","nameKr":"사하긴족 만물상","location":"Western La Noscea (X:16.9 Y:22.4)","name":"Sahagin Vendor","priceId":[13,14]},
   {"id":14,"locationJp":"黒衣森：東部森林 X:22.3 Y:26.3","nameJp":"シルフ族のよろず屋","locationKr":"검은장막 숲 동부삼림 (X:22.3 Y:26.3)","nameKr":"실프족 만물상","location":"East Shroud (X:22.3 Y:26.3)","name":"Sylphic Vendor","priceId":[]},
   {"id":15,"locationJp":"リムサ・ロミンサ：上甲板層 X:11.3 Y:14.3","nameJp":"遺失物管理人","locationKr":"림사 로민사 상층 갑판 (X:11.3 Y:14.3)","nameKr":"유실물 관리인","location":"Limsa Lominsa Upper Decks (X:11.3 Y:14.3)","name":"Calamity Salvager","priceId":[]},
   {"id":16,"locationJp":"グリダニア：旧市街 X:10.0 Y:8.4","nameJp":"遺失物管理人","locationKr":"그리다니아 구시가지 (X:10.0 Y:8.4)","nameKr":"유실물 관리인","location":"Old Gridania (X:10.0 Y:8.4)","name":"Calamity Salvager","priceId":[]},
