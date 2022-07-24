@@ -2,7 +2,7 @@
   "npc" : 
   
  [
-  {"id":1,"locationJp":"リムサ・ロミンサ：下甲板層 X:6.0 Y:12.3","nameJp":"雑貨屋 ウンシンレール","locationKr":"림사 로민사 하층 갑판 (X:6.0 Y:12.3)","nameKr":"운진레일","location":"Limsa Lominsa Lower Decks (X:6.0 Y:12.3)","name":"Unsynrael","priceId":[1,3]},
+  {"id":1,"locationJp":"リムサ・ロミンサ：下甲板層 \t X:6.0 Y:12.3","nameJp":"雑貨屋 ウンシンレール","locationKr":"림사 로민사 하층 갑판 (X:6.0 Y:12.3)","nameKr":"운진레일","location":"Limsa Lominsa Lower Decks (X:6.0 Y:12.3)","name":"Unsynrael","priceId":[1,3]},
   {"id":2,"locationJp":"グリダニア：旧市街 X:14.3 Y:8.8","nameJp":"雑貨屋 アラリック","locationKr":"그리다니아 구시가지 (X:14.3 Y:8.8)","nameKr":"알라릭","location":"Old Gridania (X:14.3 Y:8.8)","name":"Alaric","priceId":[1,3]},
   {"id":3,"locationJp":"ウルダハ：ザル回廊 X:14.2 Y:11.0","nameJp":"雑貨屋 ナナベ","locationKr":"울다하 달 회랑 (X:14.2 Y:11.0)","nameKr":"나나베","location":"Ul'dah - Steps of Thal (X:14.2 Y:11.0)","name":"Nanabe","priceId":[1,3]},
   {"id":4,"locationJp":"イシュガルド：上層 X:6.0 Y:9.9","nameJp":"よろず屋 フリヌ","locationKr":"이슈가르드 상층 (X:6.0 Y:9.9)","nameKr":"프린","location":"The Pillars (X:6.0 Y:9.9)","name":"Frine","priceId":[1,3]},

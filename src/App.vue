@@ -12,7 +12,7 @@
     <div id='wrapper' style="padding-top:5%">
       <div >
         <div style="text-align:left; width:70%; float:left">
-          <span style="text-align:left; color:black; font-size:32px">
+          <span style="text-align:left; color:black; font-size:30px">
             FF14 염료 리스트   
           </span>
           <span style="color:gray;"> v6.18</span>
@@ -93,7 +93,7 @@
       {{secondLevelBtnId}}
       {{selectColorCode}}
       {{lang}}
-      
+
        -->
 
 
@@ -155,19 +155,19 @@
                 <td rowspan="3">{{color.craft == "TRUE" ? "O" : "X"}}</td>
                 <td rowspan="3">{{ color.trade == "TRUE" ? "O" : "X"}}</td>
                 <td rowspan="3">{{ color.market == "TRUE" ? "O" : "X"}}</td>
-                <td v-if="getpriceLength(color.id) == 2">
+                <td   v-if="getpriceLength(color.id) == 2"     style="word-break:break-all;" >
                   {{ getprice(color.id)[0].price }}<br>
                   <span v-if="lang=='K'">{{ getprice(color.id)[0].restriced == "TRUE"? "(조건부)" : "" }}</span>
                   <span v-if="lang=='J'">{{ getprice(color.id)[0].restriced == "TRUE"? "(購入条件付)" : "" }}</span>
                   <span v-if="lang=='E'">{{ getprice(color.id)[0].restriced == "TRUE"? "(Restricted)" : "" }}</span>
 
                 </td>
-                <td v-if="getpriceLength(color.id) == 2">
+                <td v-if="getpriceLength(color.id) == 2"  style="word-break:break-all;">
                   {{getcurrencyNm(getprice(color.id)[0].currencyId)}}
                   <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[0].currencyId))"
                     style="width:30px; height: 30px;" class="coin">
                 </td>
-                <td v-if=" getpriceLength(color.id)==1" rowspan="3">
+                <td v-if=" getpriceLength(color.id)==1" rowspan="3"  style="word-break:break-all;">
                   {{ getprice(color.id)[0].price }}<br>
                   <span  v-if="lang=='K'" >{{ getprice(color.id)[0].restriced == "TRUE" ? "(조건부)" : "" }}</span>
                   <span  v-if="lang=='J'" >{{ getprice(color.id)[0].restriced == "TRUE" ? "(購入条件付)" : "" }}</span>
@@ -237,7 +237,7 @@
                             <span v-if="lang=='J'" >{{ (getSellNpc(color.id))[index - 1].locationJp }}</span>
                             <span v-if="lang=='E'" >{{ (getSellNpc(color.id))[index - 1].location }}</span>
                         </td>
-                        <td class="secondListTd">
+                        <td class="secondListTd"  style="word-break:break-all;" >
                            {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[0])[0].price}}
                            <span v-if="lang=='K'">
                             {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[0])[0].restriced ==
@@ -260,17 +260,17 @@
                         </td> 
                       </tr>
                       <tr v-if=" getPriceByIdsLength((getSellNpc(color.id))[index - 1].id,color.id)==2">
-                        <td class="secondListTd">
+                        <td class="secondListTd"  style="word-break:break-all;" >
                            {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[1])[0].price}}
-                            <span v-if="lang=='K'">
+                            <span v-if="lang=='K'" >
                               {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[1])[0].restriced ==
                               "TRUE"?"(조건부)" : "" }}
                            </span>
-                           <span v-if="lang=='J'">
+                           <span v-if="lang=='J'"  style="word-break:break-all;" >
                               {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[1])[0].restriced ==
                               "TRUE"?"(購入条件付)" : "" }}
                             </span>
-                            <span v-if="lang=='E'">
+                            <span v-if="lang=='E'"  style="word-break:break-all;">
                             {{ getpriceById(getPriceByIds((getSellNpc(color.id))[index - 1].id,color.id)[1])[0].restriced ==
                             "TRUE"?"(Restricted)" : "" }}
                           </span>
@@ -666,6 +666,7 @@ export default {
 
       width:50%
     }
+  
    .smallWidth>th:nth-child(9) {
     
         width: 15%
