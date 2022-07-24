@@ -1,21 +1,4 @@
 # FF14 Dye List
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+MMORPG Final Fantasy Online 14의
+염료 아이템 리스트 정리/검색 싸이트
