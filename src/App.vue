@@ -12,8 +12,8 @@
     <div id='wrapper' style="padding-top:5%">
       <div >
         <div style="text-align:left; width:70%; float:left">
-          <span style="text-align:left; color:black; font-size:30px">
-            FF14 염료 리스트   
+          <span style="text-align:left; color:black; font-size:27px">
+           FF14 염료 리스트   
           </span>
           <span style="color:gray;"> v6.18</span>
         </div>
@@ -21,13 +21,13 @@
         <div style="float:right; width:30%; float:right">
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="float:right">
               <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked  v-on:click="langBtn('K')">
-              <label class="btn btn-outline-secondary" for="btnradio1"> K </label>
+              <label class="btn btn-outline-secondary" for="btnradio1">K</label>
 
               <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" v-on:click="langBtn('J')">
-              <label class="btn btn-outline-secondary" for="btnradio2"> J </label>
+              <label class="btn btn-outline-secondary" for="btnradio2">J</label>
 
               <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" v-on:click="langBtn('E')">
-              <label class="btn btn-outline-secondary" for="btnradio3"> E </label>
+              <label class="btn btn-outline-secondary" for="btnradio3">E</label>
             </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
           <div style="text-align:left">
             <span class="firstLevelBtnSpan" v-for="color in colorTypeData" :key="color.id">
               <button class="firstLevelBtn" v-bind:id="'firstBtn'+ color.id" v-on:click="firstLevelbtnClick(color.id)"
-                v-bind:style="[{ 'background': color.code }, firstLevelBtnId == color.id ? {'border':'solid' } : {'border':'none'} ] ">
+                v-bind:style="[{ 'background': color.code }, firstLevelBtnId == color.id ? {'border':'solid black 2px' } : {'border':'none'} ] ">
               </button>
             </span>
           </div>
@@ -57,7 +57,7 @@
             <span class=" secondLevelBtnSpan" v-for="(color) in colorsSecondBtnList" :key="color.id">
               <button class="secondLevelBtn" v-bind:id="'secondBtn'+ color.id"
                 v-on:click="secondLevelBtnClick(color.id, color.colorType,color.btnId,color.code)"
-                v-bind:style="[{ 'background': color.code }, secondLevelBtnId == color.btnId ? {'border':'solid' } : {'border':'none'} ] "
+                v-bind:style="[{ 'background': color.code }, secondLevelBtnId == color.btnId ? {'border':'solid black 2px' } : {'border':'none'} ] "
                 v-tooltip="colorNm(color.id)">
               </button>
             </span>
