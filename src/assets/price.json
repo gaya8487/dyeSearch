@@ -86,7 +86,7 @@
     {"id":83,"dyeNm":"カララント:セルレアムブルー","dyeId":71,"price":40,"restriced":"FALSE","currencyId":1,"currencyNm":"ギル"},
     {"id":84,"dyeNm":"カララント:インクブルー","dyeId":73,"price":216,"restriced":"FALSE","currencyId":1,"currencyNm":"ギル"},
     {"id":85,"dyeNm":"カララント:ラプトルブルー","dyeId":74,"price":216,"restriced":"TRUE","currencyId":1,"currencyNm":"ギル"},
-    {"id":86,"dyeNm":"カララント:ラプトルブルー","dyeId":74,"price":1,"restriced":"FALSE","currencyId":1,"currencyNm":"ギル"},
+    {"id":86,"dyeNm":"カララント:ラプトルブルー","dyeId":74,"price":1,"restriced":"FALSE","currencyId":6,"currencyNm":"アマルジャ鋼鉄刀貨"},
     {"id":87,"dyeNm":"カララント:ロイヤルブルー","dyeId":78,"price":216,"restriced":"TRUE","currencyId":1,"currencyNm":"ギル"},
     {"id":88,"dyeNm":"カララント:ミッドナイトブルー","dyeId":79,"price":216,"restriced":"FALSE","currencyId":1,"currencyNm":"ギル"},
     {"id":89,"dyeNm":"カララント:シャドウブルー","dyeId":80,"price":334,"restriced":"TRUE","currencyId":1,"currencyNm":"ギル"},
