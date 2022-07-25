@@ -57,7 +57,7 @@
             <span class=" secondLevelBtnSpan" v-for="(color) in colorsSecondBtnList" :key="color.id">
               <button class="secondLevelBtn" v-bind:id="'secondBtn'+ color.id"
                 v-on:click="secondLevelBtnClick(color.id, color.colorType,color.btnId,color.code)"
-                v-bind:style="[{ 'background': color.code }, secondLevelBtnId == color.btnId ? {'border':'solid black 2px' } : {'border':'none'} ] "
+                v-bind:style="[ color.gradient == 'TRUE' ? { 'background':  'linear-gradient(324deg,#646161,'+ color.code+ ',#FFFFFF' }  : { 'background': color.code }, secondLevelBtnId == color.btnId ? {'border':'solid black 2px' } : {'border':'none'} ] "
                 v-tooltip="colorNm(color.id)">
               </button>
             </span>
