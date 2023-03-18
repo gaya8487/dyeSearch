@@ -114,6 +114,18 @@
     {"id":111,"dyeNm":"カララント:パールホワイト","dyeId":134,"price":500,"restriced":"FALSE","currencyId":7,"currencyNm":"蒼天街振興券"},
     {"id":112,"dyeNm":"カララント:パールホワイト","dyeId":134,"price":4,"restriced":"FALSE","currencyId":8,"currencyNm":"フェトゥ参加証"},
     {"id":113,"dyeNm":"カララント:シャインブラス","dyeId":135,"price":500,"restriced":"FALSE","currencyId":7,"currencyNm":"蒼天街振興券"},
-    {"id":114,"dyeNm":"カララント:シャインブラス","dyeId":135,"price":4,"restriced":"FALSE","currencyId":8,"currencyNm":"フェトゥ参加証"}]
+    {"id":114,"dyeNm":"カララント:シャインブラス","dyeId":135,"price":4,"restriced":"FALSE","currencyId":8,"currencyNm":"フェトゥ参加証"},
+    {"id":115,"dyeNm":"カララント:ルビーレッド","dyeId":17,"price":500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"},
+    {"id":116,"dyeNm":"カララント:チェリーピンク","dyeId":18,"price":500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"},
+    {"id":117,"dyeNm":"カララント:カナリーイエロー","dyeId":46,"price":500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"},
+    {"id":118,"dyeNm":"カララント:バニライエロー","dyeId":47,"price":500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"},
+    {"id":119,"dyeNm":"カララント:ドラグーンブルー","dyeId":82,"price":500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"},
+    {"id":120,"dyeNm":"カララント:ターコイズブルー","dyeId":83,"price":500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"},
+    {"id":121,"dyeNm":"カララント:ガンメタル","dyeId":133,"price":2500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"},
+    {"id":122,"dyeNm":"カララント:パールホワイト","dyeId":134,"price":2500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"},
+    {"id":123,"dyeNm":"カララント:シャインブラス","dyeId":135,"price":2500,"restriced":"FALSE","currencyId":11,"currencyNm":"シェルダレースクリップ:青船貨"}
+  
+  
+    ]
   }
 

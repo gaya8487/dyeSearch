@@ -18,7 +18,7 @@
             {{ $t("message.title") }}
             <!--FF14 염료 리스트-->
           </span>
-          <span style="color:gray;"> v6.18</span>
+          <span style="color:gray;"> v6.35</span>
         </div>
 
         <div style="float:right; width:30%; float:right">
@@ -170,12 +170,22 @@
                 <td rowspan="3">{{color.craft == "TRUE" ? "O" : "X"}}</td>
                 <td rowspan="3">{{ color.trade == "TRUE" ? "O" : "X"}}</td>
                 <td rowspan="3">{{ color.market == "TRUE" ? "O" : "X"}}</td>
+                <td v-if="getpriceLength(color.id) == 3" style="word-break:break-all;">
+                  {{ getprice(color.id)[0].price }}<br>
+                  <span v-if="lang == 'K'">{{ getprice(color.id)[0].restriced == "TRUE" ? "(조건부)" : "" }}</span>
+                  <span v-if="lang == 'J'">{{ getprice(color.id)[0].restriced == "TRUE" ? "(購入条件付)" : "" }}</span>
+                  <span v-if="lang == 'E'">{{ getprice(color.id)[0].restriced == "TRUE" ? "(Restricted)" : "" }}</span>
+                </td>
+                <td v-if="getpriceLength(color.id) == 3"  style="word-break:break-all;">
+                  {{ getcurrencyNm(getprice(color.id)[0].currencyId) }}
+                  <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[0].currencyId))"
+                    style="width:30px; height: 30px;" class="coin">
+                </td>
                 <td v-if="getpriceLength(color.id) == 2" style="word-break:break-all;">
                   {{ getprice(color.id)[0].price }}<br>
                   <span v-if="lang=='K'">{{ getprice(color.id)[0].restriced == "TRUE"? "(조건부)" : "" }}</span>
                   <span v-if="lang=='J'">{{ getprice(color.id)[0].restriced == "TRUE"? "(購入条件付)" : "" }}</span>
                   <span v-if="lang=='E'">{{ getprice(color.id)[0].restriced == "TRUE"? "(Restricted)" : "" }}</span>
-
                 </td>
                 <td v-if="getpriceLength(color.id) == 2" style="word-break:break-all;">
                   {{getcurrencyNm(getprice(color.id)[0].currencyId)}}
@@ -204,9 +214,23 @@
                   <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[1].currencyId))"
                     style="width:30px ; height: 30px;" class="coin">
                 </td>
+                <td v-if="getpriceLength(color.id) == 3">
+                  {{ getprice(color.id)[1].price }}</td>
+                <td v-if="getpriceLength(color.id) == 3" >
+                  {{ getcurrencyNm(getprice(color.id)[1].currencyId) }}
+                  <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[1].currencyId))"
+                    style="width:30px ; height: 30px;" class="coin">
+                </td>
               </tr>
               <tr v-if=" index==3" @click="listToggle(color.id)" class="border-bottom border-dark">
                 <td style="font-weight: 600;">{{ color.name }}</td>
+                  <td v-if="getpriceLength(color.id) == 3">
+                    {{ getprice(color.id)[2].price }}</td>
+                  <td v-if="getpriceLength(color.id) == 3" >
+                    {{ getcurrencyNm(getprice(color.id)[2].currencyId) }}
+                    <img :src="getSrcIcon(getcurrencyIcon(getprice(color.id)[2].currencyId))"
+                      style="width:30px ; height: 30px;" class="coin">
+                  </td>
               </tr>
               <tr v-if="index==4" v-show="toggleOpen(color.id) && getSellNpcLength(color.id) >0 ? true : false"
                 class="table-light" @click="listToggle(color.id)">

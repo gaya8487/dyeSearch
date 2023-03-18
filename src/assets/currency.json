@@ -9,7 +9,8 @@
     {"id":7,"icon":"skybuiler","nameKr":"창천 거리 진흥권","nameJp":"蒼天街振興券","name":"Skybuilders' Scrip"},
     {"id":8,"icon":"Fete","nameKr":"창천 운동회 참가 증서","nameJp":"フェトゥ参加証","name":"Fête Token"},
     {"id":9,"icon":"silver_chocobo","nameKr":"은빛 초코보 깃털","nameJp":"シルバーチョコボの羽根","name":"Silver Chocobo Feather"},
-    {"id":10,"icon":"gold_chocobo","nameKr":"금빛 초코보 깃털","nameJp":"ゴールドチョコボの羽根1","name":"Gold Chocobo Feather"}
+    {"id":10,"icon":"gold_chocobo","nameKr":"금빛 초코보 깃털","nameJp":"ゴールドチョコボの羽根1","name":"Gold Chocobo Feather"},
+    {"id":11,"icon":"Seafarer_Cowrie","nameKr":"시엘달레 화폐: 청선화","nameJp":"シェルダレースクリップ:青船貨","name":"Seafarer's Cowrie"}
   ]
 }
 
